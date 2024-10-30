@@ -1,0 +1,15 @@
+// Define outer function
+function outerFunction() {
+  let message = "Hello, Closure!";
+
+  // Return inner function
+  return function innerFunction() {
+    console.log(message);
+  }
+}
+
+// Invoke outer function and store result
+const closure = outerFunction();
+
+// Call stored function
+closure();
