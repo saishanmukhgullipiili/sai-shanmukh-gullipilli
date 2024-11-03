@@ -1,0 +1,19 @@
+function modifyAndMerge(arr1, arr2) {
+    // Create copies of original arrays to avoid modifying them
+    let modifiedArr1 = [...arr1];
+    let modifiedArr2 = [...arr2];
+    
+    // Replace "bike" in arr1 with "bus" and "scooter" using splice
+    modifiedArr1.splice(1, 1, "bus", "scooter");
+    
+    // Concatenate modifiedArr1 with arr2 using concat
+    let mergedArray = modifiedArr1.concat(modifiedArr2);
+    
+    // Return the merged array
+    return mergedArray;
+}
+
+// Test the function
+let arr1 = ["car", "bike", "train"];
+let arr2 = ["plane", "ship"];
+console.log(modifyAndMerge(arr1, arr2));
