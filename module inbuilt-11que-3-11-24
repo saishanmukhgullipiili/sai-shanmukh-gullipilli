@@ -1,0 +1,15 @@
+function extractAndReverse(arr) {
+    // Extract subarray from 3rd element (inclusive) to 5th element (exclusive)
+    let extracted = arr.slice(2, 5);
+    
+    // Reverse the extracted subarray
+    let reversed = extracted.reverse();
+    
+    // Return the reversed subarray
+    return reversed;
+}
+
+// Test the function
+let arr = [15, 30, 45, 60, 75, 90];
+console.log(extractAndReverse(arr)); // Output: [60, 45]
+``]
