@@ -1,0 +1,30 @@
+function manageLowStock(products) {
+  // Step 1: Filter products with stock less than 100
+  const lowStockProducts = products.filter(product => product.stock < 100);
+
+  // Step 2: Map low-stock products to include total reorder cost
+  const reorderedProducts = lowStockProducts.map(product => {
+    const totalReorderCost = (100 - product.stock) * product.pricePerUnit;
+    return { 
+      name: product.name, 
+      category: product.category, 
+      totalReorderCost 
+    };
+  });
+
+  // Step 3: Group products by category and calculate total reorder cost
+  const categoryReorderCosts = reorderedProducts.reduce((acc, product) => {
+    if (!acc[product.category]) {
+      acc[product.category] = 0;
+    }
+acc[product.category] += product.totalReorderCost;
+    return acc;
+  }, {});
+
+  // Sort categories in descending order of total reorder costs
+  const sortedReorderCosts = Object.fromEntries(
+ Object.entries(categoryReorderCosts).sort((a, b) => b[1] - a[1])
+  );
+
+  return sortedReorderCosts;
+}
