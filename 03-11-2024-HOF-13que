@@ -1,0 +1,24 @@
+function countCategories(categories) {
+  // Use reduce() to group categories and count occurrences
+  const categoryCounts = categories.reduce((acc, category) => {
+    acc[category] = (acc[category] || 0) + 1;
+    return acc;
+  }, {});
+
+  return categoryCounts;
+}
+
+// Example usage:
+const categories = [
+  "electronics",
+  "clothing",
+  "electronics",
+  "toys",
+  "clothing",
+  "toys",
+  "toys"
+];
+
+const result = countCategories(categories);
+console.log(result);
+// Output: { electronics: 2, clothing: 2, toys: 3 }
