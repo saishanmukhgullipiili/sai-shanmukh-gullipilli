@@ -1,0 +1,26 @@
+function evaluateEmployeePerformance(employees) {
+  // Step 1: Filter employees who have completed more than 5 tasks
+  const filteredEmployees = employees.filter(employee => employee.tasksCompleted > 5);
+
+  // Step 2: Map filtered employees to new array with performance level
+  const employeePerformances = filteredEmployees.map(employee => {
+    let performanceLevel;
+    if (employee.rating > 4.5) {
+      performanceLevel = "Excellent";
+    } else if (employee.rating >= 3 && employee.rating <= 4.5) {
+      performanceLevel = "Good";
+    } else {
+      performanceLevel = "Needs Improvement";
+    }
+    return { name: employee.name, performanceLevel };
+  });
+
+  // Step 3: Sort employees by performance level in descending order
+  const sortedEmployees = employeePerformances.sort((a, b) => {
+    const performanceOrder = ["Needs Improvement", "Good", "Excellent"];
+    return performanceOrder.indexOf(b.performanceLevel) - performanceOrder.indexOf(a.performanceLevel);
+  });
+
+  // Step 4: Return the final sorted array
+  return sortedEmployees;
+}
