@@ -1,0 +1,16 @@
+function processProducts(products) {
+  const productNames = products.map(product => product.name);
+  
+  productNames.forEach((name, index) => {
+    const price = products[index].price;
+    console.log(${name} is ${price > 50 ? 'above' : 'below'} $50);
+  });
+}
+
+// Example usage:
+const products = [
+  { name: "Laptop", price: 1000 },
+  { name: "House", price: 20 }
+];
+
+processProducts(products);
