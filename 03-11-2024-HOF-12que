@@ -1,0 +1,63 @@
+Here's the solution:
+
+
+// Custom methods
+
+// 1. Filter even numbers
+function filterEvenNumbers(arr) {
+    return arr.filter(num => num % 2 === 0);
+}
+
+// 2. Sum of array elements
+function sumOfArray(arr) {
+    return arr.reduce((acc, curr) => acc + curr, 0);
+}
+
+// 3. Sort and concatenate arrays
+function sortAndConcat(arr1, arr2) {
+    return arr1.sort((a, b) => a - b).concat(arr2.sort((a, b) => a - b));
+}
+
+// Main program
+
+// Input arrays
+let arr1 = [1, 2, 3, 4, 5];
+let arr2 = [6, 7, 8, 9, 10];
+
+// Filter even numbers
+let evenNumbers1 = filterEvenNumbers(arr1);
+let evenNumbers2 = filterEvenNumbers(arr2);
+
+console.log("Even numbers in arr1:", evenNumbers1);
+console.log("Even numbers in arr2:", evenNumbers2);
+
+// Sum of array elements
+let sum1 = sumOfArray(arr1);
+let sum2 = sumOfArray(arr2);
+
+console.log("Sum of arr1:", sum1);
+console.log("Sum of arr2:", sum2);
+
+// Sort and concatenate arrays
+let sortedConcatArr = sortAndConcat(arr1, arr2);
+
+console.log("Sorted and concatenated array:", sortedConcatArr);
+
+
+Output:
+
+
+Even numbers in arr1: [ 2, 4 ]
+Even numbers in arr2: [ 6, 8, 10 ]
+Sum of arr1: 15
+Sum of arr2: 40
+Sorted and concatenated array: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+
+
+Explanation:
+
+1. filterEvenNumbers uses filter() to return even numbers.
+2. sumOfArray uses reduce() to calculate the sum.
+3. sortAndConcat sorts each array using sort() and concatenates using concat().
+
+Custom methods are reusable, making the code more efficient and readable.
