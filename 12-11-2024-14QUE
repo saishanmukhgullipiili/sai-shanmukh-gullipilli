@@ -1,0 +1,18 @@
+function fetchDataWithCallback(callback) {
+    setTimeout(function() {
+        const success = Math.random() > 0.5;
+        if (success) {
+            callback(null, "Data fetched successfully");
+        } else {
+            callback("Error fetching data", null);
+        }
+    }, 1000);
+}
+
+fetchDataWithCallback(function(error, data) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log(data);
+    }
+});
