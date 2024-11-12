@@ -1,0 +1,69 @@
+function registerUser(callback) {
+    setTimeout(function() {
+        const success = Math.random() > 0.1; // 90% chance of success
+        if (success) {
+            console.log("User registered successfully.");
+            callback(null); // No error, continue to the next step
+        } else {
+            callback("Error during registration");
+        }
+    }, 1000);
+}
+
+function sendVerification(callback) {
+    setTimeout(function() {
+        const success = Math.random() > 0.1; // 90% chance of success
+        if (success) {
+            console.log("Verification email sent.");
+            callback(null); // No error, continue to the next step
+        } else {
+            callback("Error sending verification email");
+        }
+    }, 1000);
+}
+
+function loginUser(callback) {
+    setTimeout(function() {
+        const success = Math.random() > 0.1; // 90% chance of success
+        if (success) {
+            console.log("User logged in successfully.");
+            callback(null); // No error, continue to the next step
+        } else {
+            callback("Error during login");
+        }
+    }, 1000);
+}
+
+function displayWelcomeMessage(callback) {
+    setTimeout(function() {
+        console.log("Welcome to the platform!");
+        callback(null); // No error, workflow is complete
+    }, 1000);
+}
+
+registerUser(function(error) {
+    if (error) {
+        console.log(error);
+    } else {
+        sendVerification(function(error) {
+            if (error) {
+                console.log(error);
+            } else {
+                loginUser(function(error) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        displayWelcomeMessage(function(error) {
+                            if (error) {
+                                console.log(error);
+                            } else {
+                                console.log("User registration and login workflow completed successfully.");
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+});
+
