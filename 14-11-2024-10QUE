@@ -1,0 +1,40 @@
+function Car(make, model, type) {
+  this.make = make;
+  this.model = model;
+  this.type = type;
+  this.available = true;
+}
+
+function Customer(name) {
+  this.name = name;
+  this.rentedCars = [];
+}
+
+Customer.prototype.rentCar = function(car) {
+  if (car.available) {
+    car.available = false;
+    this.rentedCars.push(car);
+    console.log(`${this.name} rented the ${car.make} ${car.model}.`);
+  } else {
+    console.log(`${car.make} ${car.model} is already rented.`);
+  }
+};
+
+Customer.prototype.returnCar = function(car) {
+  setTimeout(() => {
+    const index = this.rentedCars.indexOf(car);
+    if (index > -1) {
+      car.available = true;
+      this.rentedCars.splice(index, 1);
+      console.log(`${this.name} returned the ${car.make} ${car.model}.`);
+    } else {
+      console.log(`${this.name} doesn't have the ${car.make} ${car.model} rented.`);
+    }
+  }, 2000); // Simulate a 2-second delay for car return
+};
+
+
+
+
+
+ 
