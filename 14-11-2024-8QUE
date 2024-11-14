@@ -1,0 +1,32 @@
+function Animal() {
+  this.type = "Animal";
+}
+
+Animal.prototype.sound = function() {
+  console.log("Animal sound");
+};
+
+function Dog() {
+  Animal.call(this);
+}
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.sound = function() {
+  console.log("Bark");
+};
+
+const myDog = new Dog();
+myDog.sound();
+
+const myAnimal = new Animal();
+myAnimal.sound();
+
+console.log(myDog.type);
+
+console.log(myDog instanceof Dog);
+console.log(myDog instanceof Animal);
+
+console.log(Dog.prototype.constructor);
+console.log(Object.getPrototypeOf(Dog.prototype) === Animal.prototype);
